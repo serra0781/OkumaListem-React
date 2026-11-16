@@ -9,6 +9,7 @@ React ile yaptığım basit bir okuma listesi uygulaması. Okumak istediğim kit
 ## Kullanılanlar
 
 - React 19
+- Google Fonts (Fraunces, Nunito, Caveat)
 - Vite
 - Tailwind CSS
 - LocalStorage (veriler tarayıcıda saklanıyor)
@@ -25,8 +26,8 @@ React ile yaptığım basit bir okuma listesi uygulaması. Okumak istediğim kit
 ## Kurulum
 
 ```bash
-git clone https://github.com/serra0781/OkumaListem.git
-cd OkumaListem
+git clone https://github.com/serra0781/OkumaListem-React.git
+cd OkumaListem-React
 npm install
 npm run dev
 ```

@@ -9,19 +9,19 @@ function FilterBar({ books, filter, onFilterChange, search, onSearchChange }) {
 
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-1.5">
         {tabs.map(([key, label]) => (
           <button
             key={key}
             onClick={() => onFilterChange(key)}
             className={
-              'px-3 py-1 rounded-full text-sm border ' +
+              'px-3.5 py-1 rounded-full text-sm transition ' +
               (filter === key
-                ? 'bg-indigo-600 text-white border-indigo-600'
-                : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50')
+                ? 'bg-plum text-white'
+                : 'text-mauve hover:bg-blush/60')
             }
           >
-            {label} ({count(key)})
+            {label} <span className="opacity-60">{count(key)}</span>
           </button>
         ))}
       </div>
@@ -30,7 +30,7 @@ function FilterBar({ books, filter, onFilterChange, search, onSearchChange }) {
         placeholder="Ara..."
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
-        className="border border-slate-300 rounded px-3 py-1.5 text-sm bg-white"
+        className="bg-transparent border-b border-blush focus:border-rose px-1 py-1 text-sm focus:outline-none sm:w-44"
       />
     </div>
   )

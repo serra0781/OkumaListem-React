@@ -35,22 +35,36 @@ function HomePage() {
   // Listeleme (filtre + arama)
   const visibleBooks = books.filter((b) => {
     const matchesFilter = filter === 'hepsi' || b.status === filter
-    const text = (b.title + ' ' + b.author).toLowerCase()
-    return matchesFilter && text.includes(search.toLowerCase())
+    const text = (b.title + ' ' + b.author).toLocaleLowerCase('tr')
+    return matchesFilter && text.includes(search.toLocaleLowerCase('tr'))
   })
 
+  const finished = books.filter((b) => b.status === 'okundu').length
+
   return (
-    <div className="space-y-5">
-      <BookForm onAdd={addBook} />
-      <FilterBar
-        books={books}
-        filter={filter}
-        onFilterChange={setFilter}
-        search={search}
-        onSearchChange={setSearch}
-      />
-      <BookList books={visibleBooks} onUpdate={updateBook} onDelete={deleteBook} />
-    </div>
+    <>
+      <header className="text-center mb-10">
+        <p className="font-hand text-2xl text-rose -mb-1">kitaplarım</p>
+        <h1 className="font-serif text-5xl font-semibold text-plum tracking-tight">Okuma Listem</h1>
+        <p className="mt-3 text-sm text-mauve">
+          {books.length === 0
+            ? 'Henüz kitap eklemedin'
+            : `${books.length} kitap · ${finished} tanesi bitti`}
+        </p>
+      </header>
+
+      <div className="space-y-6">
+        <BookForm onAdd={addBook} />
+        <FilterBar
+          books={books}
+          filter={filter}
+          onFilterChange={setFilter}
+          search={search}
+          onSearchChange={setSearch}
+        />
+        <BookList books={visibleBooks} onUpdate={updateBook} onDelete={deleteBook} />
+      </div>
+    </>
   )
 }
 

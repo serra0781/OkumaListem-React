@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --color-cream: #fdf7f2;
+  --color-blush: #fbe4e6;
+  --color-rose: #e58a9e;
+  --color-rose-dark: #c8687f;
+  --color-plum: #5b3a4a;
+  --color-mauve: #9c7b88;
+}
+
+body {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(circle at 10% 0%, #fde8ea 0, transparent 40%),
+    radial-gradient(circle at 95% 30%, #f3e8fb 0, transparent 35%);
+  background-attachment: fixed;
+  color: var(--color-plum);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #f7c6d0;
+}
+
+input::placeholder {
+  color: #c4a9b3;
+}

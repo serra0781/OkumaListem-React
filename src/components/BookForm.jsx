@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+const inputClass =
+  'w-full bg-cream/70 border border-blush rounded-xl px-4 py-2.5 text-plum focus:outline-none focus:border-rose focus:bg-white transition'
+
 function BookForm({ onAdd }) {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -8,7 +11,7 @@ function BookForm({ onAdd }) {
   function handleSubmit(e) {
     e.preventDefault()
     if (!title.trim()) {
-      setError('Kitap adı boş olamaz')
+      setError('Kitap adını yazmayı unuttun')
       return
     }
     onAdd(title, author || 'Bilinmiyor')
@@ -18,31 +21,34 @@ function BookForm({ onAdd }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow p-4">
-      <h2 className="font-semibold text-slate-700 mb-3">Yeni Kitap Ekle</h2>
-      <div className="flex flex-col sm:flex-row gap-2">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white/80 backdrop-blur rounded-3xl border border-blush p-5 shadow-[0_8px_30px_-12px_rgba(200,104,127,0.25)]"
+    >
+      <h2 className="font-serif italic text-lg text-plum mb-3">Yeni bir kitap ekle</h2>
+      <div className="grid sm:grid-cols-[1fr_1fr_auto] gap-2.5">
         <input
           type="text"
           placeholder="Kitap adı"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="flex-1 border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className={inputClass}
         />
         <input
           type="text"
           placeholder="Yazar"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="flex-1 border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className={inputClass}
         />
         <button
           type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded px-5 py-2"
+          className="bg-rose hover:bg-rose-dark text-white font-semibold rounded-xl px-6 py-2.5 transition"
         >
           Ekle
         </button>
       </div>
-      {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
+      {error && <p className="font-hand text-xl text-rose-dark mt-2">{error}</p>}
     </form>
   )
 }
