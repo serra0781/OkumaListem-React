@@ -2,7 +2,7 @@
 
 React ile yaptığım basit bir okuma listesi uygulaması. Okumak istediğim kitapları ekleyip durumlarını (Okunacak / Okunuyor / Okundu) takip edebiliyorum. TODO uygulaması mantığında hazırlandı.
 
-**Canlı Demo:** _Netlify linki buraya eklenecek_
+**Canlı Demo:** https://okumalistem.netlify.app/
 
 ![Ekran görüntüsü](docs/screenshots/ana-sayfa.jpg)
 
